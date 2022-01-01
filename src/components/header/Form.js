@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FormContainer, FoodInput, Button, Select } from './HeaderStyle'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/AuthContext';
+
 
 const Form = ({mealTypes, setMeal, setQuery, getData}) => {
   
+    const { currentUser } = useContext(AuthContext)
     const handleSubmit = (e) =>{
+
         e.preventDefault();
-        getData();
+        currentUser ? getData() : alert("Please login")
         setQuery("")
         
 

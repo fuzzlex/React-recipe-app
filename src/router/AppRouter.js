@@ -4,7 +4,8 @@ import Navbar from "../components/navbar/Navbar";
 import Home from "../pages/home/Home";
 import About from "../pages/about/About";
 import Login from "../pages/login/Login";
-import Detail from "../pages/details/Detail";
+import Details from "../pages/details/Details";
+import Register from "../pages/login/Register";
 
 
 const AppRouter = () => {
@@ -16,8 +17,9 @@ const AppRouter = () => {
         <Route>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/about" element={<About/>}/>
-                    <Route path="/details"  element={<Detail/>}/> 
+                    <Route path="/details"  element={<Details/>}/> 
                     <Route path="/login"  element={<Login/>}/>   
+                    <Route path="/register"  element={<Register/>}/>   
 
         </Route>
         </Routes>
