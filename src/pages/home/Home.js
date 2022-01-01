@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext } from 'react'
+import React from 'react'
 import Header from '../../components/header/Header'
 import { useState  } from 'react';
 import { MainContainer, ImgDiv, HomeImg } from "./HomeStyle"
