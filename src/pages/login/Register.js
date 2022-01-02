@@ -54,7 +54,7 @@ const Register = () => {
         </Segment>
       </Form>
       <Message>
-        Already have an account? <a style={{cursor:"pointer"}} onClick={navigatelogin}>Sign In</a>
+        Already have an account? <a href='/login' style={{cursor:"pointer"}} onClick={navigatelogin}>Sign In</a>
       </Message>
     </Grid.Column>
   </Grid>
