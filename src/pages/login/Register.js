@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { FormContainer, Header, LoginContainer, StyledButton, StyledForm, StyledImg, StyledInput } from './LoginStyle'
-import mealSvg from "../../assets/meal.svg"
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../../auth/firebase-config'
 import { useNavigate } from 'react-router-dom'
+import { Button, Form, Grid, Header,  Message, Segment } from 'semantic-ui-react'
+
 const Register = () => {
     const [name, setName] = useState()
     const [surname, setSurname] = useState()
@@ -24,20 +24,40 @@ const Register = () => {
             alert("Something wrong!!! ")            
         }
     }
+    const navigatelogin = () =>{
+        navigate("/login")
+    }
     return (
-     <LoginContainer>
-         <FormContainer>
-         <StyledImg src={mealSvg}/>
-         <Header>Recipe app Register</Header>
-        <StyledForm >
-            <StyledInput type="text" placeholder="name" onChange={(e) => setName(e.target.value)} required/>
-            <StyledInput type="text" placeholder="surname" onChange={(e) => setSurname(e.target.value)} required/>
-            <StyledInput type="e-mail" placeholder="E-Mail" onChange={(e) => setEmail(e.target.value)} required/>
-            <StyledInput type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} required/>
-            <StyledButton onClick={handleSubmit}>Sign In</StyledButton>
-        </StyledForm>
-        </FormContainer>
-     </LoginContainer>
+       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
+    <Grid.Column style={{ maxWidth: 500 }} >
+      <Header as='h1' color='teal' textAlign='center' size='huge'>
+       Register
+      </Header>
+      <Form size='large'>
+        <Segment stacked>
+          <Form.Input  onChange={(e) => setName(e.target.value)}  fluid icon='user' iconPosition='left' placeholder='Name' size='huge' />
+          <Form.Input  onChange={(e) => setSurname(e.target.value)}  fluid icon='user' iconPosition='left' placeholder='Surname' size='huge' />
+          <Form.Input  onChange={(e) => setEmail(e.target.value)}  fluid icon='mail' iconPosition='left' placeholder='E-mail address' size='huge' />
+          <Form.Input
+            fluid
+            icon='lock'
+            iconPosition='left'
+            placeholder='Password'
+            type='password'
+            size='huge'
+             onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Button onClick={handleSubmit} color='teal' fluid size='huge'>
+            Login
+          </Button>
+        </Segment>
+      </Form>
+      <Message>
+        Already have an account? <a style={{cursor:"pointer"}} onClick={navigatelogin}>Sign In</a>
+      </Message>
+    </Grid.Column>
+  </Grid>
     )
 }
 export default Register

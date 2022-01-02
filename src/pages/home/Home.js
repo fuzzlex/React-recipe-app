@@ -29,7 +29,7 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div style={{backgroundColor: "#00adb5"}} >
             <Header
                 mealTypes={mealTypes}
                 setMeal={setMeal}
